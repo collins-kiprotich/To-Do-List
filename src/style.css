@@ -26,6 +26,10 @@ input {
   border: none;
 }
 
+input::placeholder {
+  font-style: italic;
+}
+
 #clear-div {
   text-align: center;
   color: grey;
