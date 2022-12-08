@@ -25,6 +25,6 @@ document.addEventListener('DOMContentLoaded', () => {
 </div>`;
     itemArray.push(listContent);
   }
-  div.innerHTML = `${itemArray}`;
+  div.innerHTML = `${itemArray.join('')}`;
   locay.appendChild(div);
 });
