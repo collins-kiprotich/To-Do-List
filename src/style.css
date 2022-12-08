@@ -1,3 +1,82 @@
-.hello {
-    color: blue;
-  }
+body {
+  padding: 5% 20%;
+}
+
+#todo {
+  background-color: white;
+}
+
+input {
+  border: none;
+}
+
+.check-list input {
+  display: inline-block;
+  padding-left: 0;
+}
+
+.check-list div {
+  display: inline-block;
+}
+
+.check-list {
+  display: flex;
+  flex-direction: column;
+}
+
+#todo-title,
+#add-div,
+#clear-div,
+li {
+  /* padding-bottom: 6px;
+ padding-top: 6px; */
+  height: 25px;
+  border-bottom: 1px solid rgb(238, 227, 227);
+}
+
+#todo-title {
+  font-weight: 400;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  padding-right: 3%;
+}
+
+#add-div {
+  color: grey;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 3%;
+}
+
+input::placeholder {
+  font-style: italic;
+}
+
+#clear-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(116, 108, 108);
+  background-color: rgb(226, 218, 218);
+  height: 50px;
+  font-size: 18px;
+}
+
+li {
+  padding-left: 0;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: space-around;
+  border-bottom: 1px solid rgb(209, 201, 201);
+}
+
+.dots {
+  margin-left: 95%;
+  padding-right: 5%;
+  color: rgb(180, 173, 173);
+}
