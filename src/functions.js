@@ -15,7 +15,6 @@ export function saveTodo() {
   // check if userenters an  empty input and clicks
   /* eslint-disable no-else-return */
   /* eslint-disable brace-style */
-  
   if (isEmpty) {
     return null;
   } else if (isDuplicate) {
