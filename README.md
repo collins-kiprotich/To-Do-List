@@ -18,6 +18,12 @@
 - **[Remove an item from List]**
 
 
+### Future Features <a name="key-features"></a>
+
+
+- **[make item selection]**
+- **[Delete all selected item]**
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- LIVE DEMO -->

@@ -78,7 +78,19 @@ li {
 }
 
 .dots {
-  margin-left: 95%;
-  padding-right: 5%;
+  display: flex;
+  gap: 5px;
+  margin-left: 90%;
   color: rgb(180, 173, 173);
+}
+
+.deletesvg,
+.editsvg{
+  cursor: pointer;
+  margin-right: 2px;
+}
+
+.dotssvg {
+  cursor: pointer;
+  display: none;
 }
