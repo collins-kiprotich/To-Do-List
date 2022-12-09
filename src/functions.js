@@ -1,57 +1,43 @@
-/* eslint-disable linebreak-style */
-/* eslint-disable no-use-before-define */
-/* eslint-disable brace-style */
 // select variables
 const todoListElement = document.getElementById('todo');
 let todos = JSON.parse(localStorage.getItem('todos')) || [];
 const todoInput = document.querySelector('input');
-/* eslint-disable no-unused-vars */
 let EditTodoId = -1;
 // first render
 
-document.querySelector('#add-div').addEventListener('keypress', (e) => {
-  if (e.key === 'Enter') {
-    // code for enter
-    saveTodo();
-    clearInputField();
-    renderTodos();
-    localStorage.setItem('todos', JSON.stringify(todos));
-  }
-});
-
-// save Todo function
+// save Todo function to the local storage of a user machine
 /* eslint-disable consistent-return */
 export function saveTodo() {
   const todoValue = todoInput.value;
   const isEmpty = todoValue === '';
   // check duplicate input
   const isDuplicate = todos.some((todo) => todo.value.toUpperCase() === todoValue.toUpperCase());
-  // check emptyinput
+  // check if userenters an  empty input and clicks
+  /* eslint-disable no-else-return */
   if (isEmpty) {
     return null;
-    /* eslint-disable no-else-return */
   } else if (isDuplicate) {
     return null;
   }
-  //   else {
-  //             if (EditTodoId => 0) {
-  // todos = todos.map((todo, index) => ({
-  //             ...todo,
-  /* eslint-disable no-trailing-spaces */
-  //             value: index === EditTodoId ? todoValue: todo.value,
-  //         }))
-  //         EditTodoId = -1;
-  //   }     // update the edittodo
   else {
-    todos.push({
-      value: todoValue,
-      completed: false,
-      index: todos.length,
-    });
-  }
-  todoInput.value = '';
-}
+    if (EditTodoId >= 0) {
+      todos = todos.map((todo, index) => ({
+        ...todo,
 
+        value: index === EditTodoId ? todoValue : todo.value,
+      }));
+      EditTodoId = -1;
+        }
+    else {
+      todos.push({
+        value: todoValue,
+        completed: false,
+        index: todos.length + 1,
+      });
+    }
+    todoInput.value = '';
+  }
+}
 // clear fields
 export function clearInputField() {
   document.querySelector('input').value = '';
@@ -81,10 +67,23 @@ export function renderTodos() {
 </div></div>`;
   });
 }
-// add an event listener to clicks on the to do list
 
+// to edit todo
+export function editTodo(todoId) {
+  const todoInput = document.getElementById('add-input');
+  todoInput.value = todos[todoId].value;
+  EditTodoId = todoId;
+}
+// delete todo
+export function deleteTodo(todoId) {
+  todos = todos.filter((todo, index) => index !== todoId);
+  // re-render
+  renderTodos();
+  localStorage.setItem('todos', JSON.stringify(todos));
+}
+// add an event listener to clicks on the to do list
+/* eslint-disable prefer-destructuring */
 todoListElement.addEventListener('click', (event) => {
-  /* eslint-disable prefer-destructuring */
   const target = event.target;
   const parentElement = target.parentNode.parentNode;
   if (parentElement.className !== 'flex-container') return;
@@ -95,26 +94,11 @@ todoListElement.addEventListener('click', (event) => {
   /* eslint-disable prefer-destructuring */
   const action = target.dataset.action;
   // action === 'check' && checkTodo(todoId);
-
   /* eslint-disable no-unused-expressions */
+
   action === 'delete' && deleteTodo(todoId);
   action === 'edit' && editTodo(todoId);
 });
-
-// to edit todo
-export function editTodo(todoId) {
-  const todoInput = document.getElementById('add-input');
-  todoInput.value = todos[todoId].value;
-  EditTodoId = todoId;
-}
-
-// delete todo
-export function deleteTodo(todoId) {
-  todos = todos.filter((todo, index) => index !== todoId);
-  // re-render
-  renderTodos();
-  localStorage.setItem('todos', JSON.stringify(todos));
-}
 
 export function clearCompleted() {
   const checked = document.querySelectorAll('.checkbox:checked');

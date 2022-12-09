@@ -67,6 +67,10 @@ button {
   min-width: 100%;
 }
 
+.strikethrough {
+  background-color: red;
+}
+
 li {
   padding-left: 0;
 }
@@ -80,7 +84,7 @@ li {
 .dots {
   display: flex;
   gap: 5px;
-  margin-left: 90%;
+  margin-left: 95%;
   color: rgb(180, 173, 173);
 }
 
