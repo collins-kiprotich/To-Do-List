@@ -14,6 +14,8 @@ export function saveTodo() {
   const isDuplicate = todos.some((todo) => todo.value.toUpperCase() === todoValue.toUpperCase());
   // check if userenters an  empty input and clicks
   /* eslint-disable no-else-return */
+  /* eslint-disable brace-style */
+  
   if (isEmpty) {
     return null;
   } else if (isDuplicate) {
@@ -27,7 +29,7 @@ export function saveTodo() {
         value: index === EditTodoId ? todoValue : todo.value,
       }));
       EditTodoId = -1;
-        }
+    }
     else {
       todos.push({
         value: todoValue,
