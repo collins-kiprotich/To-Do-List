@@ -26,7 +26,7 @@ input {
 
 #todo-title,
 #add-div,
-#clear-div,
+button,
 li {
   /* padding-bottom: 6px;
  padding-top: 6px; */
@@ -55,7 +55,7 @@ input::placeholder {
   font-style: italic;
 }
 
-#clear-div {
+button {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -63,6 +63,8 @@ input::placeholder {
   background-color: rgb(226, 218, 218);
   height: 50px;
   font-size: 18px;
+  border: none;
+  min-width: 100%;
 }
 
 li {
