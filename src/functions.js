@@ -3,7 +3,6 @@ const todoListElement = document.getElementById('todo');
 let todos = JSON.parse(localStorage.getItem('todos')) || [];
 const todoInput = document.querySelector('input');
 let EditTodoId = -1;
-// first render
 
 // save Todo function to the local storage of a user machine
 
@@ -13,7 +12,7 @@ export function saveTodo() {
   // check duplicate input
   const isDuplicate = todos.some((todo) => todo.value.toUpperCase() === todoValue.toUpperCase());
   // check if userenters an  empty input and clicks
-
+   
   if (isEmpty) {
     alert('input is empty');
   } else if (isDuplicate) {
