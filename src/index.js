@@ -22,7 +22,6 @@ document.getElementById('clear-div').addEventListener('click', () => {
 // add an event listener to clicks on the to do list
 
 // todoListElement.addEventListener('click', (event) => {
-//   /* eslint-disable prefer-destructuring */
 //   const target = event.target;
 //   const parentElement = target.parentNode.parentNode;
 //   if (parentElement.className !== 'flex-container') { return; }
@@ -36,3 +35,9 @@ document.getElementById('clear-div').addEventListener('click', () => {
 //   // action === 'delete' && deleteTodo(todoId);
 //   // action === 'edit' && editTodo(todoId);
 // });
+
+// document.getElementsById('clear-div').addEventListener(('click', (event) =>{
+//   const parentElement = event.target.parentNode.parentNode;
+//   console.log(parentElement);
+//   deleteTodo(todoId);
+// }))
