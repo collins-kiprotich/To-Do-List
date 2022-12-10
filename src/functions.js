@@ -75,6 +75,12 @@ export function editTodo(todoId) {
 export function deleteTodo(todoId) {
   todos = todos.filter((todo, index) => index !== todoId);
   // re-render
+  todos = todos.map((todo, index) => ({
+    value: todo.value,
+    completed: todo.false,
+    index: index + 1,
+  }));
+
   renderTodos();
   localStorage.setItem('todos', JSON.stringify(todos));
 }
@@ -100,12 +106,16 @@ todoListElement.addEventListener('click', (event) => {
 
 export function clearCompleted() {
   const checked = document.querySelectorAll('.checkbox:checked');
+  const todoIds = [];
   checked.forEach((item) => {
     const parentElement = item.parentNode.parentNode;
     const todoId = Number(parentElement.id);
-    todos = todos.filter((todo, index) => index !== todoId);
+    todoIds.push(todoId);
 
-    renderTodos();
-    localStorage.setItem('todos', JSON.stringify(todos));
+    for (let i = 0; i < todoIds.length; i += 1) {
+      todos = todos.filter((todo, index) => index !== todoIds[i]);
+      renderTodos();
+      localStorage.setItem('todos', JSON.stringify(todos));
+    }
   });
 }
