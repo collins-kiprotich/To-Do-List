@@ -96,7 +96,6 @@ li {
 
 input:checked + div {
   text-decoration: line-through;
-  
 }
 
 .dotssvg {
