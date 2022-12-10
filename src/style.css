@@ -94,6 +94,11 @@ li {
   margin-right: 2px;
 }
 
+input:checked + div {
+  text-decoration: line-through;
+  
+}
+
 .dotssvg {
   cursor: pointer;
   display: none;

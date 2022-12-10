@@ -18,3 +18,20 @@ document.querySelector('#add-div').addEventListener('keypress', (e) => {
 document.getElementById('clear-div').addEventListener('click', () => {
   clearCompleted();
 });
+
+const checkbox = document.querySelector("input[name=checkbox]");
+
+document.addEventListener('change', function() {
+  if (this.checked) {
+    alert("hello")
+  } else {
+    console.log("Checkbox is not checked..");
+   
+   console.log(checkbox.parentElement);
+  }
+});
+
+document.addEventListener("DOMContentLoaded", (e) => {
+  e.target.nextSibling.classList.toggle("visible");
+  console.log("e.target.nextSibling")
+})

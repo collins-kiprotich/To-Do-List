@@ -33,6 +33,7 @@ export function saveTodo() {
     }
     todoInput.value = '';
   }
+  localStorage.setItem('todos', JSON.stringify(todos));
 }
 // clear fields
 export function clearInputField() {
