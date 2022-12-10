@@ -2,7 +2,7 @@
 import './style.css';
 
 import {
-  saveTodo, clearInputField, renderTodos, clearCompleted,
+  saveTodo, clearInputField, renderTodos, clearCompleted, changeCompletedStatus,
 } from './functions.js';
 
 renderTodos();
@@ -18,3 +18,7 @@ document.querySelector('#add-div').addEventListener('keypress', (e) => {
 document.getElementById('clear-div').addEventListener('click', () => {
   clearCompleted();
 });
+
+document.querySelectorAll('.checkbox').addEventListener(('click', () => {
+  changeCompletedStatus();
+}));

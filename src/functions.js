@@ -114,8 +114,27 @@ export function clearCompleted() {
 
     for (let i = 0; i < todoIds.length; i += 1) {
       todos = todos.filter((todo, index) => index !== todoIds[i]);
+      todos = todos.map((todo, index) => ({
+        value: todo.value,
+        completed: todo.false,
+        index: index + 1,
+
+      }));
+
       renderTodos();
       localStorage.setItem('todos', JSON.stringify(todos));
     }
   });
+}
+export function changeCompletedStatus() {
+  const checked = document.querySelectorAll('.checkbox:checked');
+  if (checked) {
+    todos = todos.map((todo, index) => ({
+      value: todo.value,
+      completed: !todo.false,
+      index: index + 1,
+    }));
+  }
+  renderTodos();
+  localStorage.setItem('todos', JSON.stringify(todos));
 }
