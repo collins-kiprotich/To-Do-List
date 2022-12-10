@@ -77,7 +77,7 @@ export function deleteTodo(todoId) {
   // re-render
   todos = todos.map((todo, index) => ({
     value: todo.value,
-    completed: false,
+    completed: todo.false,
     index: index + 1,
   }));
 
@@ -114,14 +114,7 @@ export function clearCompleted() {
 
     for (let i = 0; i < todoIds.length; i += 1) {
       todos = todos.filter((todo, index) => index !== todoIds[i]);
-
-      todos = todos.map((todo, index) => ({
-        value: todo.value,
-        completed: todo.completed,
-        index: index + 1,
-      }));
-
-      renderTodos();g
+      renderTodos();
       localStorage.setItem('todos', JSON.stringify(todos));
     }
   });
