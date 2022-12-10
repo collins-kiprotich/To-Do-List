@@ -12,7 +12,6 @@ export function saveTodo() {
   // check duplicate input
   const isDuplicate = todos.some((todo) => todo.value.toUpperCase() === todoValue.toUpperCase());
   // check if userenters an  empty input and clicks
-   
   if (isEmpty) {
     alert('input is empty');
   } else if (isDuplicate) {
