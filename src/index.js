@@ -16,5 +16,5 @@ document.querySelector('#add-div').addEventListener('keypress', (e) => {
 });
 
 document.getElementById('clear-div').addEventListener('click', () => {
-  clearCompleted();
-});
+clearCompleted()
+})
