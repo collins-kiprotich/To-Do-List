@@ -2,15 +2,14 @@
 import './style.css';
 
 import {
-  saveTodo, clearInputField, renderTodos, clearCompleted, changeCompletedStatus,
+  saveTodo, renderTodos, clearCompleted,
 } from './functions.js';
 
-renderTodos();
+window.onload = renderTodos();
 document.querySelector('#add-div').addEventListener('keypress', (e) => {
   if (e.key === 'Enter') {
     // code for enter
     saveTodo();
-    clearInputField();
     renderTodos();
   }
 });
@@ -18,7 +17,3 @@ document.querySelector('#add-div').addEventListener('keypress', (e) => {
 document.getElementById('clear-div').addEventListener('click', () => {
   clearCompleted();
 });
-
-document.querySelectorAll('.checkbox').addEventListener(('click', () => {
-  changeCompletedStatus();
-}));
