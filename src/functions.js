@@ -59,6 +59,7 @@ export function renderTodos() {
 
 // to edit todo
 function editTodo(todoId) {
+  alert('edit');
   const todoInput = document.getElementById('add-input');
   todoInput.value = todos[todoId].value;
   EditTodoId = todoId;
