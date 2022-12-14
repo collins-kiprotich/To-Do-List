@@ -94,7 +94,7 @@ li {
   margin-right: 2px;
 }
 
-input:checked + div {
+.bi-check-square + div {
   text-decoration: line-through;
 }
 

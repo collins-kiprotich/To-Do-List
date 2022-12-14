@@ -14,15 +14,15 @@
 ### Key Features <a name="key-features"></a>
 
 
-- **[Add an item to the list]**
-- **[Remove an item from List]**
+- **[Select completed Tasks]**
+- **[Clear all completed tasks]**
 
 
 ### Future Features <a name="key-features"></a>
 
 
-- **[make item selection]**
-- **[Delete all selected item]**
+- **[Improve UX design]**
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

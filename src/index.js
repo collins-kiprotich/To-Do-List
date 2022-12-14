@@ -2,15 +2,14 @@
 import './style.css';
 
 import {
-  saveTodo, clearInputField, renderTodos, clearCompleted,
+  saveTodo, renderTodos, clearCompleted,
 } from './functions.js';
 
-renderTodos();
+window.onload = renderTodos();
 document.querySelector('#add-div').addEventListener('keypress', (e) => {
   if (e.key === 'Enter') {
     // code for enter
     saveTodo();
-    clearInputField();
     renderTodos();
   }
 });
