@@ -30,7 +30,7 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-The link to my website is yet to be created
+This is the [link](https://collins-kiprotich.github.io/To-Do-List/dist/) to my website
 
 <!-- GETTING STARTED -->
 
