@@ -59,13 +59,13 @@ export function renderTodos() {
 
 // to edit todo
 function editTodo(todoId) {
-  alert("edit")
+  alert('edit');
   const todoInput = document.getElementById('add-input');
   todoInput.value = todos[todoId].value;
   EditTodoId = todoId;
 }
 // delete todo
-function deleteTodo(todoId){
+function deleteTodo(todoId) {
   todos = todos.filter((todo, index) => index !== todoId);
   todos = todos.map((todo, index) => ({
     value: todo.value,
