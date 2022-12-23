@@ -13,26 +13,26 @@ export function saveTodo() {
   const isDuplicate = todos.some((todo) => todo.value.toUpperCase() === todoValue.toUpperCase());
   // check if userenters an  empty input and clicks
   if (isEmpty) {
-    alert('input is empty');
-  } else if (isDuplicate) {
-    alert('already exists');
-  } else {
-    if (EditTodoId >= 0) {
-      todos = todos.map((todo, index) => ({
-        ...todo,
-
-        value: index === EditTodoId ? todoValue : todo.value,
-      }));
-      EditTodoId = -1;
-    } else {
-      todos.push({
-        value: todoValue,
-        completed: false,
-        index: todos.length + 1,
-      });
-    }
-    todoInput.value = '';
+    return;
+  } if (isDuplicate) {
+    return;
   }
+  if (EditTodoId >= 0) {
+    todos = todos.map((todo, index) => ({
+      ...todo,
+
+      value: index === EditTodoId ? todoValue : todo.value,
+    }));
+    EditTodoId = -1;
+  } else {
+    todos.push({
+      value: todoValue,
+      completed: false,
+      index: todos.length + 1,
+    });
+  }
+  todoInput.value = '';
+
   localStorage.setItem('todos', JSON.stringify(todos));
 }
 // render to user interphase
@@ -45,7 +45,7 @@ export function renderTodos() {
   todoListElement.innerHTML = '';
   todos.forEach((todo, index) => {
     todoListElement.innerHTML += `<div class='check-list'><div class="flex-container" id='${index}'>
-    <div class="left">
+     <div class="left">
     <i class="bi ${todo.completed ? 'bi-check-square' : 'bi-square'}" data-action="check"></i>
     <div data-action = 'edit' >${todo.value}</div>
     </div>
@@ -59,7 +59,6 @@ export function renderTodos() {
 
 // to edit todo
 function editTodo(todoId) {
-  alert('edit');
   const todoInput = document.getElementById('add-input');
   todoInput.value = todos[todoId].value;
   EditTodoId = todoId;
@@ -72,7 +71,6 @@ function deleteTodo(todoId) {
     completed: todo.completed,
     index: index + 1,
   }
-
   ));
   // re-render;
   renderTodos();
@@ -111,28 +109,27 @@ todoListElement.addEventListener('click', (event) => {
   // data action
   const { action } = target.dataset;
 
-  // instruction to check a todo
-  (action === 'check' && checkTodo(todoId))(action === 'delete' && deleteTodo(todoId))(action === 'edit' && editTodo(todoId));
+  // instruction to edit a todo
+  if (action === 'edit') {
+    editTodo(todoId);
+  }
+  // instruction to check todo
+  if (action === 'check') {
+    checkTodo(todoId);
+  }
+  // instruction to delete
+  if (action === 'delete') {
+    deleteTodo(todoId);
+  }
 });
 
 export function clearCompleted() {
-  const checked = document.querySelectorAll('.bi-check-square');
-  const todoIds = [];
-  checked.forEach((item) => {
-    const parentElement = item.parentNode.parentNode;
-    const todoId = Number(parentElement.id);
-    todoIds.push(todoId);
-
-    for (let i = 0; i < todoIds.length; i += 1) {
-      todos = todos.filter((todo, index) => index !== todoIds[i]);
-    }
-    todos = todos.map((todo, index) => ({
-      value: todo.value,
-      completed: todo.completed,
-      index: index + 1,
-    }));
-  });
-
+  todos = todos.filter((todo) => todo.completed !== true);
+  todos = todos.map((todo, index) => ({
+    value: todo.value,
+    completed: todo.completed,
+    index: index + 1,
+  }));
   renderTodos();
   localStorage.setItem('todos', JSON.stringify(todos));
 }
